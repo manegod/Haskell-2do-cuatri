@@ -211,6 +211,15 @@ multiplicaPrimos (x:xs) = productoria' (x:xs) (esPrimo1)
 -- Esta funcion discrimina entre enteros positivos y negativos. El resultados es la nueva lista:
 -- [1, 6, 2]
 
+--8a
+ejercicio8:: [Int] -> [Int]
+ejercicio8  [] = []
+ejercicio8 (x:xs) = (x*2): ejercicio8 xs
+
+--8b
+
+dupli2 x = map (*2) x
+
 
 
 
