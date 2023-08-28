@@ -190,6 +190,37 @@ multiplicaPrimos (x:xs) = productoria' (x:xs) (esPrimo1)
 -- multiplicaPrimos [1,4,6]    
 --1
 --6h e i
+fibb:: Int -> Int
+fibb 0 = 0
+fibb 1 =1 
+fibb n = fibb (n - 1) + fibb (n - 2)
+
+esFibb :: [Int ]
+esFibb = [fibb x | x <- [0..]]
+
+esFibAux :: Int -> [Int] -> Bool
+esFibAux x [] = False
+esFibAux x (y:ys) | x<y = False
+                  | x>y = esFibAux x ys
+                  | x==y = True
+
+
+esFib m = esFibAux m esFibb
+--EJEMPLOS
+--*Main> esFib 2
+--True
+--*Main> esFib 5
+--True
+--*Main> esFib 6
+--False
+
+tFib :: [Int] -> Bool
+tFib m = paratodo' m esFib
+--EJEMPLOS
+--Main> tFib [2,3,6,9,5,15]
+--False
+--*Main> tFib [2,3]
+--True
 
                                            --7--
 --Funcion map: toma una funcion y una lista como entrada.
@@ -232,6 +263,9 @@ seraPrimo (x:xs) | esPrimo x == True = x:seraPrimo xs
 seraPrimo2 xs= filter esPrimo xs
 
 --9c
+
+esPrimo1 :: Int -> Bool
+esPrimo1 x = not (null (filter esPrimo [2..x]))
 
 --10a
 primIgualesA:: Eq a=> a -> [a] -> [a]
