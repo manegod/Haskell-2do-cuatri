@@ -220,6 +220,45 @@ ejercicio8 (x:xs) = (x*2): ejercicio8 xs
 
 dupli2 x = map (*2) x
 
+--9a
+
+seraPrimo:: [Int] -> [Int]
+seraPrimo [] = []
+seraPrimo (x:xs) | esPrimo x == True = x:seraPrimo xs
+                 | esPrimo x == False = seraPrimo xs
+
+--9b
+
+seraPrimo2 xs= filter esPrimo xs
+
+--9c
+
+--10a
+primIgualesA:: Eq a=> a -> [a] -> [a]
+primIgualesA n [] = []
+primIgualesA n (x:xs) | (n == x) = x : primIgualesA n xs
+                      | otherwise = []
+
+
+--10b
+
+primIgualesA2 n xs = takeWhile (\x -> x==n) xs
+
+--11a
+
+primIguales :: Eq a => [a] -> [a]
+
+primIguales [] = []
+primIguales [x] = [x]
+
+primIguales (x:xs) | (x == head xs) = x : primIguales xs
+               | otherwise = [x]
+
+
+--11b
+
+primIguales11 :: Eq a => [a] -> [a]
+primIguales11 xs = primIgualesA (head xs) xs
 
 
 
