@@ -1,5 +1,10 @@
 -- Maria Luz Varas
 
+--1a
+
+esCero :: Int -> Bool
+esCero x = x==0
+
 -- b
 
 esPositivo :: Int -> Bool
