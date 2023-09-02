@@ -5,6 +5,11 @@
 esCero :: Int -> Bool
 esCero x = x==0
 
+{- esCero 0
+--True
+esCero 01
+--False
+-}
 -- b
 
 esPositivo :: Int -> Bool
