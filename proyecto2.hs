@@ -1,3 +1,13 @@
+--Podés definir algo como
+--type Area = Int
+--data Formis = Cuadrado Area | Circulo Area
+
+--Instance Eq Formis where
+         --Cuadrado x == Circulo z = x == z
+
+--"Un cuadrado de área x va a ser igual a un círculo de área z si z es igual a x"
+
+
 
 --Maria Luz Varas
 
