@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+// Estructura para almacenar las coordenadas
+struct coordenada {
+    double ordenada;
+    double abscisa;
+    double error;
+};
+
+// Estructura para almacenar los resultados
+struct coordenadas_superpuestas {
+    bool coincide;
+    bool contiene;
+    bool es_contenida;
+};
+
+// Función para verificar superposición
+struct coordenadas_superpuestas verificar_superposicion(struct coordenada original, struct coordenada nueva) {
+    struct coordenadas_superpuestas resultados;
+
+    resultados.coincide = (original.ordenada == nueva.ordenada) && (original.abscisa == nueva.abscisa) && (original.error == nueva.error);
+    resultados.contiene = (original.ordenada == nueva.ordenada) && (original.abscisa == nueva.abscisa) && (original.error > nueva.error);
+    resultados.es_contenida = (original.ordenada == nueva.ordenada) && (original.abscisa == nueva.abscisa) && (original.error < nueva.error);
+
+    return resultados;
+}
+
+int main() {
+    struct coordenada original;
+    struct coordenada nueva;
+
+    printf("Ingrese las coordenadas originales:\n");
+    printf("Ordenada: ");
+    scanf("%lf", &original.ordenada);
+    printf("Abscisa: ");
+    scanf("%lf", &original.abscisa);
+    printf("Error: ");
+    scanf("%lf", &original.error);
+
+    printf("Ingrese las coordenadas nuevas:\n");
+    printf("Ordenada: ");
+    scanf("%lf", &nueva.ordenada);
+    printf("Abscisa: ");
+    scanf("%lf", &nueva.abscisa);
+    printf("Error: ");
+    scanf("%lf", &nueva.error);
+
+    struct coordenadas_superpuestas resultados = verificar_superposicion(original, nueva);
+
+    printf("Resultados:\n");
+    printf("Coincide: %s\n", resultados.coincide ? "true" : "false");
+    printf("Contiene: %s\n", resultados.contiene ? "true" : "false");
+    printf("Es Contenida: %s\n", resultados.es_contenida ? "true" : "false");
+
+    return 0;
+}
+
+
+
